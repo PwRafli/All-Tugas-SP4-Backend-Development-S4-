@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Room</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+
+<body class="container mt-4">
+
+    <h2>Add New Room</h2>
+
+    <form action="/add" method="POST" enctype="multipart/form-data">
+
+        <label>Photo</label>
+        <input type="file" name="photo" class="form-control mb-2" accept="image/*">
+
+        <input name="code_room" class="form-control mb-2" placeholder="Code Room" required>
+
+        <input name="name" class="form-control mb-2" placeholder="Name" required>
+
+        <input name="description" class="form-control mb-2" placeholder="Description">
+
+        <input name="room_size" class="form-control mb-2" placeholder="Room Size">
+
+        <input name="price" type="number" step="0.01" class="form-control mb-2" placeholder="Price">
+
+        <input name="guests" type="number" class="form-control mb-2" placeholder="Guests">
+
+        <input name="available" class="form-control mb-2" placeholder="Available">
+
+        <button class="btn btn-success">Save</button>
+
+        <a href="/" class="btn btn-secondary">Back</a>
+
+    </form>
+
+</body>
+
+</html>
