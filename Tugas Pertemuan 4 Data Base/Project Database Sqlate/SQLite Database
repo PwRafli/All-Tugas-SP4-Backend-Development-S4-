@@ -1,0 +1,65 @@
+Berikut versi lengkap project yang sudah di-update dengan fitur:
+
+✅ CRUD Room
+✅ SQLite Database
+✅ Upload foto room
+✅ Search room
+✅ Menampilkan foto di tabel
+
+Tambahan yang diperlukan:
+
+library upload → multer
+
+folder gambar → uploads
+
+Install dulu: npm install express sqlite3 body-parser ejs multer
+crud-express-sqlite
+│
+├── uploads
+│   └── (foto akan tersimpan disini)
+│
+├── views
+│   ├── index.ejs
+│   ├── add.ejs
+│   └── edit.ejs
+│
+├── app.js
+├── Sqlitedb.js
+├── database.db
+└── package.json
+
+
+6️⃣ Jalankan Project
+npm install express sqlite3 body-parser ejs multer
+node app.js
+Buka:
+http://localhost:3000
+
+
+Sqlitedb.js
+const sqlite3 = require("sqlite3").verbose();
+
+const db = new sqlite3.Database("./database.db", (err) => {
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log("Terhubung ke SQLite database");
+    }
+});
+
+db.run(`
+CREATE TABLE IF NOT EXISTS room(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    photo TEXT,
+    code_room TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT,
+    room_size TEXT,
+    price REAL,
+    guests INTEGER,
+    available TEXT
+)
+`);
+
+module.exports = db;
+---------------------------------------------------------------+
