@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Tambah Homestay</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #f8f9fb;
+        }
+
+        .form-card {
+            max-width: 820px;
+            margin: 0 auto;
+            border: 1px solid #e2e6ea;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+
+</head>
+
+<body class="container py-4">
+
+    <div class="card form-card">
+        <div class="card-body p-4">
+            <h4 class="text-center mb-4">Tambah Homestay Baru</h4>
+
+            <form action="/add" method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label class="form-label">Foto Homestay</label>
+                    <input type="file" name="photo" class="form-control" accept="image/*">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nama Homestay</label>
+                    <input name="name" class="form-control" placeholder="Nama Homestay" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kode Kamar</label>
+                    <input name="code_room" class="form-control" placeholder="Kode Kamar" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ukuran Kamar</label>
+                    <input name="room_size" class="form-control" placeholder="Contoh: 24 m² (Single Bed)">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Harga / Malam</label>
+                    <input name="price" type="number" step="0.01" class="form-control" placeholder="Harga per malam">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Jumlah Tamu</label>
+                    <input name="guests" type="number" class="form-control" placeholder="Jumlah tamu">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fasilitas</label>
+                    <textarea name="facilities" class="form-control" rows="2"
+                        placeholder="WiFi, AC, TV, Kamar Mandi Dalam"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Deskripsi</label>
+                    <textarea name="description" class="form-control" rows="3"
+                        placeholder="Fasilitas, catatan penting, atau deskripsi lainnya"></textarea>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="available" name="available" value="1"
+                        checked>
+                    <label class="form-check-label" for="available">Tersedia</label>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success">Simpan</button>
+                    <a href="/" class="btn btn-secondary">Batal</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

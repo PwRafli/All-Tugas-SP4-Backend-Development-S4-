@@ -1,0 +1,68 @@
+<!-- Card -->
+<div class="card shadow mb-4">
+
+    <div class="card-header py-3">
+        <!-- Kept the modal button if you plan to use a modal, otherwise changing to a link to access the /add page directly -->
+        <a href="/add" class="btn btn-outline-primary btn-sm">
+            Add Room
+        </a>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Size</th>
+                        <th>Facilities</th>
+                        <th>Price</th>
+                        <th>Guests</th>
+                        <th>Available</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% const formatter = new Intl.NumberFormat("id-ID"); %>
+                    <% rooms.forEach(room => { %>
+                    <tr>
+                        <td>
+                            <img src="/uploads/<%= room.photo %>" style="width: 72px; height: 54px; object-fit: cover; border-radius: 4px; border: 1px solid #d9dee3;" alt="room photo">
+                        </td>
+                        <td><%= room.code_room %></td>
+                        <td><%= room.name %></td>
+                        <td><%= room.description %></td>
+                        <td><%= room.room_size %></td>
+                        <td><%= room.facilities %></td>
+                        <td><%= room.price !== null && room.price !== undefined ? "Rp " + formatter.format(room.price) : "-" %></td>
+                        <td><%= room.guests %></td>
+                        <td>
+                            <% const isAvailable = ["1","true","on","yes"].includes(String(room.available || "").toLowerCase()); %>
+                            <span class="badge <%= isAvailable ? "bg-success" : "bg-secondary" %>">
+                                <%= isAvailable ? "Yes" : "No" %>
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <a href="/edit/<%= room.id %>" class="btn btn-outline-warning btn-sm button-update">
+                                Edit
+                            </a>
+                            <form action="/delete/<%= room.id %>" method="POST" class="d-inline" onsubmit="return confirm('Delete room?')">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
