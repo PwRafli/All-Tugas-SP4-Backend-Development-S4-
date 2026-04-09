@@ -1,0 +1,123 @@
+1. views/js.ejs
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>
+
+views/table.ejs
+<!-- Card -->
+<div class="card shadow mb-4">
+
+  <div class="card-header py-3">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-outline-primary btn-sm"
+      data-toggle="modal"
+      data-target="#add-modal"
+    >
+      Add
+    </button>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Jurusan</th>
+            <th>Alamat</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Contoh Nama</td>
+            <td>123456</td>
+            <td>Teknik Informatika</td>
+            <td>Surabaya</td>
+            <td class="text-center">
+              <a href="#" class="btn btn-outline-warning btn-sm button-update">
+                Edit
+              </a>
+              <button type="submit" class="btn btn-outline-danger btn-sm">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
+views/index.ejs
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2 class="text-center">CRUD DATA MAHASISWA STIKOM</h2>
+
+    <div class="row mt-3">
+      <!-- Table -->
+      <div class="col-lg-12 mt-2">
+        <%- include('table.ejs') %>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <%- include('js.ejs') %>
+
+</body>
+</html>
+
+crud-mahasiswa/
+│
+├── views/
+│   ├── index.ejs
+│   ├── table.ejs
+│   └── js.ejs
+│
+├── app.js
+└── routes/
