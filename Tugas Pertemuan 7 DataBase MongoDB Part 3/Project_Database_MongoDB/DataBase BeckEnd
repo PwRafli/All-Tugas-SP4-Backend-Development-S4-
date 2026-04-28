@@ -1,0 +1,4 @@
+Pendahuluan
+Modul ini berfokus pada implementasi konsep REST API dan operasi CRUD (Create, Read, Update, Delete) 
+menggunakan framework Express.js dan database MongoDB. Pengembangan ini mencakup pengelolaan data homestay, termasuk 
+integrasi unggah file (foto) menggunakan middleware Multer.
