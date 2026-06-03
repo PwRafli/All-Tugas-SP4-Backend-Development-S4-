@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Posts</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style="background: lightgray">
+
+    <div class="container mt-5">
+
+        <% if(messages.success){ %>
+            <div class="alert alert-success">
+                <%= messages.success %>
+            </div>
+            <% } %>
+
+                <div class="card border-0 shadow rounded">
+                    <div class="card-body">
+
+                        <a href="/posts/create" class="btn btn-success mb-3">
+                            TAMBAH POST
+                        </a>
+
+                        <table class="table table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>TITLE</th>
+                                    <th>CONTENT</th>
+                                    <th width="200px">AKSI</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <% data.forEach(function(post){ %>
+
+                                    <tr>
+                                        <td>
+                                            <%= post.id %>
+                                        </td>
+                                        <td>
+                                            <%= post.title %>
+                                        </td>
+                                        <td>
+                                            <%= post.content %>
+                                        </td>
+
+                                        <td>
+                                            <a href="/posts/edit/<%= post.id %>" class="btn btn-primary btn-sm">
+                                                EDIT
+                                            </a>
+
+                                            <a href="/posts/delete/<%= post.id %>" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Yakin Hapus Data?')">
+                                                DELETE
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <% }) %>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+    </div>
+
+</body>
+
+</html>
