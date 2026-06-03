@@ -1,0 +1,36 @@
+Jika project CRUD Express.js + MySQL sudah lengkap (Create, Read, Update, Delete), maka struktur foldernya menjadi:
+project-crud-express/
+│
+├── app.js
+├── package.json
+│
+├── library/
+│   └── database.js
+│
+├── routes/
+│   ├── index.js
+│   ├── users.js
+│   └── posts.js
+│
+├── views/
+│   ├── error.ejs
+│   │
+│   └── posts/
+│       ├── index.ejs
+│       ├── create.ejs
+│       └── edit.ejs
+│
+├── public/
+│   ├── images/
+│   ├── javascripts/
+│   └── stylesheets/
+│       └── style.css
+│
+└── node_modules/
+
+Dengan struktur tersebut, fitur CRUD sudah lengkap:
+
+Create → create.ejs
+Read (Index) → index.ejs
+Update → edit.ejs
+Delete → tombol Delete pada index.ejs dan route delete/:id di posts.js।
