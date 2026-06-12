@@ -1,0 +1,33 @@
+{
+  "name": "crud-express-mysql",
+  "version": "1.0.0",
+  "description": "A modern Express and MySQL CRUD Web Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "express",
+    "mysql",
+    "crud",
+    "ejs",
+    "modern"
+  ],
+  "author": "Antigravity",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.1.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
