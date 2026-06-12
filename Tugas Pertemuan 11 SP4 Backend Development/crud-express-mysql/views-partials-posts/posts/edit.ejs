@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+
+<main>
+    <div class="page-header">
+        <div class="page-title-group">
+            <h1>Edit Publication</h1>
+            <p>Update your existing publication title or content</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <form action="/posts/update/<%= post.id %>?_method=PUT" method="POST" novalidate>
+            <!-- Title Input -->
+            <div class="form-group">
+                <label for="title" class="form-label">Title</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    class="form-control <%= (errors && errors.title) ? 'is-invalid' : '' %>" 
+                    placeholder="Enter an engaging title..." 
+                    value="<%= (formData && formData.title !== undefined) ? formData.title : post.title %>" 
+                    required
+                >
+                <% if (errors && errors.title) { %>
+                    <div class="invalid-feedback"><%= errors.title.msg || errors.title %></div>
+                <% } %>
+            </div>
+
+            <!-- Content Textarea -->
+            <div class="form-group">
+                <label for="content" class="form-label">Content</label>
+                <textarea 
+                    id="content" 
+                    name="content" 
+                    class="form-control <%= (errors && errors.content) ? 'is-invalid' : '' %>" 
+                    placeholder="Write your publication content here..." 
+                    required
+                ><%= (formData && formData.content !== undefined) ? formData.content : post.content %></textarea>
+                <% if (errors && errors.content) { %>
+                    <div class="invalid-feedback"><%= errors.content.msg || errors.content %></div>
+                <% } %>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <a href="/posts" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        <polyline points="17 21 17 13 7 13 7 21"/>
+                        <polyline points="7 3 7 8 15 8"/>
+                    </svg>
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
